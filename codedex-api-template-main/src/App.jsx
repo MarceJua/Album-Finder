@@ -89,16 +89,30 @@ function App() {
             onChange={(event) => setSearchInput(event.target.value)}
             style={{
               width: "300px",
-              height: "35px",
-              borderWidth: "0px",
+              height: "40px",
+              borderWidth: "1px",
               borderStyle: "solid",
-              borderRadius: "5px",
+              borderColor: "#ced4da",
+              borderRadius: "20px",
+              paddingLeft: "15px",
               marginRight: "10px",
-              paddingLeft: "10px",
+              boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)"
             }}
           />
 
-          <Button onClick={search}>Search</Button>
+          <Button onClick={search}
+          style={{
+          height: "40px",
+          borderRadius: "20px",
+          backgroundColor: "#007bff",
+          borderColor: "#007bff",
+          color: "#fff",
+          padding: "0 20px",
+          boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
+          }}
+          >
+            Search
+          </Button>
         </InputGroup>
       </Container>
       <Container>
@@ -116,17 +130,25 @@ function App() {
               <Card
                 key={album.id}
                 style={{
-                  backgroundColor: "white",
+                  backgroundColor: "#f8f9fa",
                   margin: "10px",
-                  borderRadius: "5px",
+                  borderRadius: "10px",
                   marginBottom: "30px",
+                  boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
+                  transition: "transform 0.2s",
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = "scale(1.05)";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = "scale(1)";
                 }}
               >
                 <Card.Img
                   width={200}
                   src={album.images[0].url}
                   style={{
-                    borderRadius: "4%",
+                    borderRadius: "10px 10px 0 0",
                   }}
                 />
                 <Card.Body>
@@ -137,7 +159,7 @@ function App() {
                       maxWidth: "200px",
                       fontSize: "18px",
                       marginTop: "10px",
-                      color: "black",
+                      color: "#343a40",
                     }}
                   >
                     {album.name}
